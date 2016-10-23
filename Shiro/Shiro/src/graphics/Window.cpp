@@ -38,6 +38,11 @@ namespace shiro {
 			std::cerr << "Fatal error creating window.Terminating" << std::endl;
 			return false;
 		}
+		if (!glewInit())
+		{
+			std::cerr << "Fatal error initializing glew.Terminating" << std::endl;
+			return false;
+		}
 		glfwMakeContextCurrent(m_window);
 		return true;
 	}

@@ -1,6 +1,9 @@
 #pragma once
+#include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <iostream>
+
+
 namespace shiro {
 	class Window {
 	private:
@@ -14,6 +17,7 @@ namespace shiro {
 		void update();
 		bool closed() const;
 		void clear() const;
+		inline GLFWwindow* getWindowHandler() { return m_window; };
 	private:
 		bool init();
 	};
