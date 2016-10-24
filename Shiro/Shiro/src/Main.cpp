@@ -1,8 +1,11 @@
 #include "graphics\Window.h"
 #include "input\InputManager.h"
+#include "utils\FileUtils.h"
 using namespace shiro;
 	int main()
 	{
+		utils::FileUtils::loadFromFile(R"(test.txt)");
+		getchar();
 		Window w(800, 600, "Hola");
 		glClearColor(0.2f, 0.2f, 0.2f,1.0f);
 		std::cout << "GLFW version:" << glfwGetVersionString() << std::endl;

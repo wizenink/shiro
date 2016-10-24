@@ -3,6 +3,8 @@
 namespace shiro {
 	bool InputManager::m_keymap[KEYMAP_SIZE];
 	bool InputManager::m_mousemap[MOUSEMAP_SIZE];
+	double InputManager::m_mousex = 0;
+	double InputManager::m_mousey = 0;
 	void InputManager::key_callback(GLFWwindow * window, int key, int scancode, int action, int mode)
 	{
 		if (action == GLFW_PRESS)
@@ -19,13 +21,14 @@ namespace shiro {
 	}
 	InputManager::InputManager(GLFWwindow* window):m_window(window)
 	{
+		
 		glfwSetKeyCallback(window,key_callback);
 		glfwSetMouseButtonCallback(window, mousebutton_callback);
 		for (int i = 0; i < KEYMAP_SIZE - 1; i++)
 			InputManager::m_keymap[i] == false;
 		for (int i = 0; i < MOUSEMAP_SIZE - 1; i++)
 			InputManager::m_mousemap[i] == false;
-		m_mousex = m_mousey = 0;
+		
 	}
 
 
@@ -34,15 +37,15 @@ namespace shiro {
 	}
 	void InputManager::Update()
 	{
-		glfwGetCursorPos(m_window,&m_mousex,&m_mousey)
+		glfwGetCursorPos(m_window, &m_mousex, &m_mousey);
 	}
-	bool InputManager::isKeyPressed(unsigned int keycode) const
+	bool InputManager::isKeyPressed(unsigned int keycode)
 	{
 		if (keycode >= KEYMAP_SIZE)
 			throw std::invalid_argument("Keycode out of range. Range is [0,KEYMAP_SIZE)");
 		return InputManager::m_keymap[keycode];
 	}
-	bool InputManager::isMouseButtonPressed(unsigned int mousebuttoncode) const
+	bool InputManager::isMouseButtonPressed(unsigned int mousebuttoncode)
 	{
 		if (mousebuttoncode >= MOUSEMAP_SIZE)
 			throw std::invalid_argument("Mouse Button Code out of range. Range is [0,MOUSEMAP_SIZE)");

@@ -19,7 +19,7 @@ namespace shiro {
 		InputManager(GLFWwindow* window);
 		~InputManager();
 		void Update();
-		bool isKeyPressed(unsigned int keycode) const;
-		bool isMouseButtonPressed(unsigned int mousebuttoncode) const;
+		static bool isKeyPressed(unsigned int keycode);
+		static bool isMouseButtonPressed(unsigned int mousebuttoncode);
 	};
 }

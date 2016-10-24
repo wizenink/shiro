@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shiro", "Shiro\Shiro.vcxproj", "{7B9AE10F-C513-4E6A-B7DA-47C4859C8461}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shiro-core", "Shiro\Shiro.vcxproj", "{7B9AE10F-C513-4E6A-B7DA-47C4859C8461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
