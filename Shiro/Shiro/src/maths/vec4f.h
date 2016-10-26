@@ -13,9 +13,9 @@ namespace shiro {
 		vec4f operator-(const vec4f &v);
 		vec4f& operator-=(const vec4f &v);
 		friend vec4f operator*(vec4f l, const float m);
-		vec4f& operator*=(const vec4f &v);
+		vec4f& operator*=(const int i);
 		friend vec4f operator/(vec4f l, const float m);
-		vec4f& operator/=(const vec4f &v);
+		vec4f& operator/=(const int i);
 		friend std::ostream& operator<<(std::ostream& out, const vec4f& v);
 		float mod();
 	};

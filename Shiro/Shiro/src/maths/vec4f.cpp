@@ -57,21 +57,21 @@ namespace shiro {
 		return *this;
 	}
 
-	vec4f & vec4f::operator*=(const vec4f &v)
+	vec4f & vec4f::operator*=(const int i)
 	{
-		this->x *= v.x;
-		this->y *= v.y;
-		this->z *= v.z;
-		this->w *= v.w;
+		this->x *= i;
+		this->y *= i;
+		this->z *= i;
+		this->w *= i;
 		return *this;
 	}
 
-	vec4f & vec4f::operator/=(const vec4f & v)
+	vec4f & vec4f::operator/=(const int i)
 	{
-		this->x /= v.x;
-		this->y /= v.y;
-		this->z /= v.z;
-		this->w /= v.w;
+		this->x /= i;
+		this->y /= i;
+		this->z /= i;
+		this->w /= i;
 		return *this;
 	}
 
