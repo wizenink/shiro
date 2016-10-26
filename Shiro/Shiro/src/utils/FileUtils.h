@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iostream>
 #include <exception>
+#include <algorithm>
 namespace shiro { namespace utils {
 	class FileUtils {
 	public:

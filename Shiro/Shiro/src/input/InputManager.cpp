@@ -25,9 +25,9 @@ namespace shiro {
 		glfwSetKeyCallback(window,key_callback);
 		glfwSetMouseButtonCallback(window, mousebutton_callback);
 		for (int i = 0; i < KEYMAP_SIZE - 1; i++)
-			InputManager::m_keymap[i] == false;
+			InputManager::m_keymap[i] = false;
 		for (int i = 0; i < MOUSEMAP_SIZE - 1; i++)
-			InputManager::m_mousemap[i] == false;
+			InputManager::m_mousemap[i] = false;
 		
 	}
 

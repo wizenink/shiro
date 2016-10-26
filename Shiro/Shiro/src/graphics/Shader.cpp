@@ -4,17 +4,29 @@ namespace shiro {
 	{
 		m_shaderid = load();
 	}
+	void Shader::bind()
+	{
+		glUseProgram(m_shaderid);
+	}
+	void Shader::unbind()
+	{
+		glUseProgram(0);
+	}
 	GLuint Shader::load()
 	{
-		const char* vertexstring = utils::FileUtils::loadFromFile(m_vertexpath).c_str();
-		const char* fragmentstring = utils::FileUtils::loadFromFile(m_fragmentpath).c_str();
+		std::string vertexstringInitial = utils::FileUtils::loadFromFile(m_vertexpath);
+		std::string fragmentstringInitial = utils::FileUtils::loadFromFile(m_fragmentpath);
+
+		const char* vertexstring = vertexstringInitial.c_str();
+		const char* fragmentstring = fragmentstringInitial.c_str();
 		GLint result;
 		GLint length;
-		GLuint program = glCreateProgram();
+ 		GLuint program = glCreateProgram();
 		GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
 		GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
 		glShaderSource(vertex, 1,&vertexstring, NULL);
+		glCompileShader(vertex);
 		glGetShaderiv(vertex, GL_COMPILE_STATUS, &result);
 		if (result == GL_FALSE)
 		{
@@ -27,6 +39,7 @@ namespace shiro {
 		}
 
 		glShaderSource(fragment, 1, &fragmentstring, NULL);
+		glCompileShader(fragment);
 		glGetShaderiv(fragment, GL_COMPILE_STATUS, &result);
 		if (result == GL_FALSE)
 		{
@@ -39,6 +52,7 @@ namespace shiro {
 		}
 		glAttachShader(program, vertex);
 		glAttachShader(program, fragment);
+		glLinkProgram(program);
 		glValidateProgram(program);
 		glDeleteShader(vertex);
 		glDeleteShader(fragment);

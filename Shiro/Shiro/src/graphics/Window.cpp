@@ -18,7 +18,7 @@ namespace shiro {
 	}
 	bool Window::closed() const
 	{
-		return glfwWindowShouldClose(m_window);
+		return (glfwWindowShouldClose(m_window) == 0) ? false:true;
 	}
 	void Window::clear() const
 	{
@@ -31,6 +31,7 @@ namespace shiro {
 			std::cerr << "Fatal error initilizing glfw.Terminating" << std::endl;
 			return false;
 		}
+		
 		m_window = glfwCreateWindow(m_width, m_height, m_name, NULL, NULL);
 		if (!m_window)
 		{
@@ -38,12 +39,15 @@ namespace shiro {
 			std::cerr << "Fatal error creating window.Terminating" << std::endl;
 			return false;
 		}
-		if (!glewInit())
+		glfwMakeContextCurrent(m_window);
+		GLenum err = glewInit();
+		if (err != GLEW_OK)
 		{
-			std::cerr << "Fatal error initializing glew.Terminating" << std::endl;
+			std::cerr << "Fatal error initializing glew.Terminating with error " << err << std::endl;
+			getchar();
 			return false;
 		}
-		glfwMakeContextCurrent(m_window);
+		
 		return true;
 	}
 }
