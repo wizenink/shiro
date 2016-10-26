@@ -24,6 +24,7 @@
     <ClCompile Include="src\graphics\Window.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\maths\mat4f.cpp" />
+    <ClCompile Include="src\maths\Quaternion.cpp" />
     <ClCompile Include="src\maths\vec3f.cpp" />
     <ClCompile Include="src\maths\vec4f.cpp" />
     <ClCompile Include="src\utils\FileUtils.cpp" />
@@ -33,6 +34,7 @@
     <ClInclude Include="src\input\InputManager.h" />
     <ClInclude Include="src\graphics\Window.h" />
     <ClInclude Include="src\maths\mat4f.h" />
+    <ClInclude Include="src\maths\Quaternion.h" />
     <ClInclude Include="src\maths\vec3f.h" />
     <ClInclude Include="src\maths\vec4f.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
